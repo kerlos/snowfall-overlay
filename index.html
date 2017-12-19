@@ -2,46 +2,95 @@
 	<head>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
-		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+		<link rel="stylesheet" type="text/css" href="styles.css">
 	</head>	
 	<body>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/JQuery-Snowfall/1.7.4/snowfall.jquery.min.js'></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/JQuery-Snowfall/1.7.4/snowfall.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			//sample queryString ?minSize=10&maxSize=20&image=1&round=1&count=100
+		<div id="editor">
+			<input type='file' id='imgfile' />
+    		<input type='button' id='btnLoad' value='Load' onclick='loadImage();' />
+		</div>
 
-			var param = new URL(location.href).searchParams;
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/JQuery-Snowfall/1.7.4/snowfall.jquery.min.js'></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/JQuery-Snowfall/1.7.4/snowfall.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//sample queryString ?minSize=10&maxSize=20&image=1&round=1&count=100
+				$('#editor').hide();
+				var param = new URL(location.href).searchParams;
 
-			var minSize = param.has('minSize') ? parseInt(param.get('minSize')) : 5;
-			var maxSize = param.has('maxSize') ? parseInt(param.get('maxSize')) : 20;
-			var round = param.has('round') ? param.get('round') : true;
-			var shadow = param.has('shadow') ? param.get('shadow') : false;
-			var collect  = param.has('collect') ? param.get('collect') : false;
-			var useImage = param.has('image') ? param.get('image') : false;
-			var count = param.has('count') ? parseInt(param.get('count')) : 40;
-			var config = {
-				minSize : minSize,
-				maxSize : maxSize,
-				flakeCount : count
-			};
+				var minSize = param.has('minSize') ? parseInt(param.get('minSize')) : 8;
+				var maxSize = param.has('maxSize') ? parseInt(param.get('maxSize')) : 24;
+				var round = param.has('round') ? param.get('round') : true;
+				var shadow = param.has('shadow') ? param.get('shadow') : false;
+				var collect  = param.has('collect') ? param.get('collect') : false;
+				var useImage = param.has('image') ? param.get('image') : false;
+				var count = param.has('count') ? parseInt(param.get('count')) : 40;
+				var config = {
+					minSize : minSize,
+					maxSize : maxSize,
+					flakeCount : count
+				};
+				if(param.has('debug')){
+					$('#editor').show();
+					$('body').css('background','#000');
+				}
+				if(round == true){
+					config.round = true;
+				}
+				if(shadow == true){
+					config.shadow = true;
+				}
+				if(useImage == true){
+					config.image = 'flake.png';
+				}
+				if(collect == true){
+					config.collection = '.collect';
+				}
 
-			if(round == true){
-				config.round = true;
-			}
-			if(shadow == true){
-				config.shadow = true;
-			}
-			if(useImage == true){
-				config.image = 'flake.png';
-			}
-			if(collect == true){
-				config.collection = '.collect';
-			}
-			console.log(config);
+				$(document).snowfall(config);
+			});
 
-			$(document).snowfall(config);
-		});
-	</script>
+			function loadImage() {
+		        var input, file, fr, img;
+
+		        if (typeof window.FileReader !== 'function') {
+		            write("The file API isn't supported on this browser yet.");
+		            return;
+		        }
+
+		        input = document.getElementById('imgfile');
+		        if (!input) {
+		            write("Um, couldn't find the imgfile element.");
+		        }
+		        else if (!input.files) {
+		            write("This browser doesn't seem to support the `files` property of file inputs.");
+		        }
+		        else if (!input.files[0]) {
+		            write("Please select a file before clicking 'Load'");
+		        }
+		        else {
+		            file = input.files[0];
+		            fr = new FileReader();
+		            fr.onload = createImage;
+		            fr.readAsDataURL(file);
+		        }
+
+		        function createImage() {
+		            img = new Image();
+		            img.onload = imageLoaded;
+		            img.src = fr.result;
+		        }
+
+		        function imageLoaded() {
+		        	$('body').css('background','url('+img.src+') no-repeat');
+		        }
+
+		        function write(msg) {
+		            var p = document.createElement('p');
+		            p.innerHTML = msg;
+		            document.body.appendChild(p);
+		        }
+		    }
+		</script>
 	</body>
 </html>
