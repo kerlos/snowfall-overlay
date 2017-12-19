@@ -1,5 +1,47 @@
 <html>
+	<head>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+	</head>	
 	<body>
-	hello world
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/JQuery-Snowfall/1.7.4/snowfall.jquery.min.js'></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/JQuery-Snowfall/1.7.4/snowfall.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//sample queryString ?minSize=10&maxSize=20&image=1&round=1&count=100
+			
+			var param = new URL(location.href).searchParams;
+
+			var minSize = param.has('minSize') ? parseInt(param.get('minSize')) : 20;
+			var maxSize = param.has('maxSize') ? parseInt(param.get('maxSize')) : 40;
+			var round = param.has('round') ? param.get('round') : false;
+			var shadow = param.has('shadow') ? param.get('shadow') : false;
+			var collect  = param.has('collect') ? param.get('collect') : false;
+			var useImage = param.has('image') ? param.get('image') : false;
+			var count = param.has('count') ? parseInt(param.get('count')) : 100;
+			var config = {
+				minSize : minSize,
+				maxSize : maxSize,
+				flakeCount : count
+			};
+
+			if(round == true){
+				config.round = true;
+			}
+			if(shadow == true){
+				config.shadow = true;
+			}
+			if(useImage == true){
+				config.image = 'flake.png';
+			}
+			if(collect == true){
+				config.collection = '.collect';
+			}
+			console.log(config);
+
+			$(document).snowfall(config);
+		});
+	</script>
 	</body>
 </html>
