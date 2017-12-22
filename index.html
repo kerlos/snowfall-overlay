@@ -125,10 +125,10 @@
 						counter++;
 					}
 				}
-
+				$('body').css('background','#000');
 				if(!params.has('view')){
 					$('#editor').show().draggable();
-					$('body').css('background','#000');
+					
 					$('#view').css('border','1px solid red');
 					$('#minSize').val(minSize);
 					$('#maxSize').val(maxSize);
