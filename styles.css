@@ -1,3 +1,57 @@
 html, body {
 	background-repeat: no-repeat;
+	font-family: 'Open Sans', sans-serif;
+	min-height: 100%;
+	height: 100%;
+	overflow: scroll;
+}
+table{
+	margin-bottom: 10px;
+}
+#imgfile{
+	width:150px;
+}
+.collect{
+}
+
+.box{
+	width:10%;
+	background-color: rgba(255,0,0,0.5);
+	height:10%;
+	margin:0;
+	padding:10px;
+	vertical-align: center;
+	text-align: center;
+	color:#fff;
+}
+.placeholder{
+	margin:120px auto; 
+	background: red; 
+	text-align:center; 
+	font-size:1.2em; color:#fff;
+	width:20%;
+	display:block;
+}
+.snowfall-flakes{
+	opacity: 0.3;
+}
+
+#editor{
+	background-color: #fefefe;
+	display: inline-block;
+	padding:5px;
+	margin:5px;
+	border-radius: 4px;
+	float:right;
+}
+tr td:nth-child(2){
+	padding-left:20px;
+}
+.small{
+	width:40px;
+    text-align: center;
+}
+#view{
+	width:1920px;
+	height:1080px;
 }
