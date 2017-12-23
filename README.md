@@ -41,3 +41,6 @@ You can preview screen and use it as guide for create Collect box
 * [jQuery Snowfall](https://github.com/loktar00/JQuery-Snowfall)
 * [Normalize.css](https://necolas.github.io/normalize.css/)
 * [Google Fonts](https://fonts.google.com/)
+
+## Donate
+[Donate with paypal](https://streamlabs.com/kerlos127)
