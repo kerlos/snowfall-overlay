@@ -32,4 +32,4 @@ You can preview screen and use it as guide for create Collect box
 ## Technology use
 * [jQuery](https://jquery.com/)
 * [jQuery UI](https://jqueryui.com/)
-* [jQuery Snowfall)(https://github.com/loktar00/JQuery-Snowfall)
+* [jQuery Snowfall](https://github.com/loktar00/JQuery-Snowfall)
