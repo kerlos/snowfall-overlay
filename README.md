@@ -29,7 +29,7 @@ You can preview screen and use it as guide for create Collect box
 
 ## Setup
 * [OBS Studio Setup](https://github.com/kerlos/snowfall-overlay/wiki/OBS-Setup)
-
+* [Xsplit Setup](https://github.com/kerlos/snowfall-overlay/wiki/Xsplit-Setup)
 
 ## Technology use
 * [jQuery](https://jquery.com/)
