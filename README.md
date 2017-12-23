@@ -3,7 +3,7 @@ Live stream snowfall overlay
 
 [Snowfall Overlay Editor](https://kerlos.github.io/snowfall-overlay/)
 
-[Example](https://kerlos.github.io/snowfall-overlay/?view&minSize=8&maxSize=24&minSpeed=1&maxSpeed=3&amount=40&collect=1&shadow=0&image=1&width=1920&height=1080&opacity=0.3)
+[Example Overlay](https://kerlos.github.io/snowfall-overlay/?view&minSize=8&maxSize=24&minSpeed=1&maxSpeed=3&amount=40&collect=1&shadow=0&image=1&width=1920&height=1080&opacity=0.3)
 
 [Source Code](https://github.com/kerlos/snowfall-overlay/tree/gh-pages)
 
