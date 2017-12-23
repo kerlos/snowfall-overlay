@@ -23,7 +23,9 @@ Collect Box will collect snow on top of it
 * remove box by pressing `Remove` button next to Collect box name
 * move box by click and drag on box
 * resize box by click and drag on edge of box
+
 [Example setup collect boxes](https://raw.githubusercontent.com/kerlos/snowfall-overlay/master/examples/collect_setup.jpg)
+
 [Example preview](https://raw.githubusercontent.com/kerlos/snowfall-overlay/master/examples/collect_preview.jpg)
 
 ## Preview with image
